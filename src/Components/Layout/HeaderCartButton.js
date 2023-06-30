@@ -11,8 +11,9 @@ const HeaderCartButton = (props) => {
   // }, 0);
   let quantity = 0;
   cartCtx.items.forEach((item) => {
-    quantity = quantity + Number(item.quantity);
+    quantity = quantity + item.quantity;
   });
+  // console.log(cartCtx.items);
   return (
     <button className={classes.button} onClick={props.onClick}>
       <span className={classes.icon}>

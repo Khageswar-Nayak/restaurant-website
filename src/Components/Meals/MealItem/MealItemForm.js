@@ -9,8 +9,14 @@ const MealItemForm = (props) => {
   const addToCartHandler = (event) => {
     event.preventDefault();
     // console.log(event.target);
-    const quantity = document.getElementById("amount_" + props.item.id).value;
-    cartCtx.addItem({ ...props.item, quantity: quantity });
+    const quantity = Number(
+      document.getElementById("amount_" + props.item.id).value
+    );
+    cartCtx.addItem({
+      ...props.item,
+      quantity: quantity,
+      price: props.item.price * quantity,
+    });
     // console.log(cartCtx);
   };
   return (
