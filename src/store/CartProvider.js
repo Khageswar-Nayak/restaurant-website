@@ -6,6 +6,7 @@ const CartProvider = (props) => {
 
   const [totalAmount, setTotalAmount] = useState(0);
   const addItemToCartHandler = (item) => {
+    console.log(item);
     const existingItem = items.find((cartItem) => cartItem.id === item.id);
 
     if (existingItem) {
@@ -53,11 +54,17 @@ const CartProvider = (props) => {
     setTotalAmount(updatedTotalAmount);
   };
 
+  const clearCartHandler = () => {
+    setItems([]);
+    setTotalAmount(0);
+  };
+
   const cartContext = {
     items: items,
     totalAmount: totalAmount,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
+    clearCart: clearCartHandler,
   };
 
   return (

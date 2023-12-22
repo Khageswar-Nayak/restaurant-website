@@ -20,6 +20,12 @@ const Cart = (props) => {
     });
   };
 
+  const orderHandler = () => {
+    // Add the logic to handle the order
+    // Remove all items from the cart
+    cartCtx.clearCart();
+  };
+
   const cartItems = (
     <ul className={classes["cart-items"]}>
       {cartCtx.items.map((item) => (
@@ -45,7 +51,11 @@ const Cart = (props) => {
         <button className={classes["button--alt"]} onClick={props.onClose}>
           Close
         </button>
-        {hasItem && <button className={classes.button}>Order</button>}
+        {hasItem && (
+          <button className={classes.button} onClick={orderHandler}>
+            Order
+          </button>
+        )}
       </div>
     </Modal>
   );
